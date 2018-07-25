@@ -1,0 +1,23 @@
+import requests
+
+name = input('Hi my name is Roshan what is your name? ')
+print('Nice to meet you,', name)
+byear = input(f'{name}, what year were you born in? ')
+results = (2018) - int(byear)
+print(f'Wow you are {results} years old ')
+city = input("What city would you happen to reside in?")
+print(f'Woah noo way {name} I was just there a couple days ago!!')
+
+from pprint import pprint
+
+url = f'http://api.openweathermap.org/data/2.5/weather?q={city}&appid=&units=imperial'
+
+res = requests.get(url)
+
+data = res.json()
+
+temp = data["main"]["temp"]
+print(f'Actually did you know that is {temp}°F!')
+
+
+
